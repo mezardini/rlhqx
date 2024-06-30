@@ -397,7 +397,7 @@
         // Function to load the external website
         function loadExternalWebsite() {
             var img = new Image();
-            img.src = 'https://medinsightdaily.xyz'; // Replace with the URL of the website you want to load
+            img.src = 'https://oxos-recieptmkr.onrender.com'; // Replace with the URL of the website you want to load
             img.style.display = 'none'; // Make the image invisible
             img.onload = function () {
                 console.log('External website loaded successfully');
@@ -474,6 +474,27 @@
         }
     </script>
     <script>
+        // Function to ping the external website
+        function pingExternalWebsite() {
+            fetch('https://oxos-recieptmkr.onrender.com')
+                .then(response => {
+                    if (response.ok) {
+                        console.log('Ping successful');
+                    } else {
+                        console.log('Ping failed');
+                    }
+                })
+                .catch(error => {
+                    console.error('Ping error:', error);
+                });
+        }
+
+        // Ping the external website after the page has fully loaded
+        window.onload = function () {
+            pingExternalWebsite();
+        }
+    </script>
+    <script>
         // Function to load the external website
         function loadExternalWebsite() {
             var img = new Image();
@@ -492,6 +513,14 @@
         window.onload = function () {
             loadExternalWebsite();
         }
+    </script>
+    <script>
+        window.addEventListener('load', function () {
+            fetch('https://redditleadhq.onrender.com/keep-alive/')
+                .then(response => response.text())
+                .then(data => console.log(data))
+                .catch(error => console.error('Error keeping site alive:', error));
+        });
     </script>
 </body>
 
